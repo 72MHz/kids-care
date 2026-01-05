@@ -1,0 +1,27 @@
+<header class="hero-section text-white text-center position-relative overflow-hidden">
+    <!-- Main Content -->
+  <div class="hero-content">
+    <div class="content-wrapper">
+      <h1 class="display-4 fw-bold mb-3 animate-fade-in">Welcome to <span class="highlight-text">Kids Care</span></h1>
+      <p class="lead mb-4 fs-5">A safe, playful, and learning-first environment for your little ones.</p>
+      
+      <!-- Interactive Features -->
+      <div class="features-grid mb-5">
+        <div class="feature-item" *ngFor="let feature of features">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <span class="feature-text">{{ feature.text }}</span>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="#services" class="btn btn-light btn-lg fw-bold interactive-btn">
+          <i class="bi bi-play-circle"></i> Explore Services
+        </a>
+        <a href="#contact" class="btn btn-outline-light btn-lg fw-bold interactive-btn">
+          <i class="bi bi-calendar-event"></i> Book a Visit
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

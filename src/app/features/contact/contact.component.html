@@ -1,0 +1,90 @@
+<section id="contact" class="mb-5 py-5">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-6 fw-bold mb-2">
+        <i class="bi bi-telephone-fill text-success"></i> Contact Us
+      </h2>
+      <p class="text-muted fs-5">Get in touch with us today</p>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+          <div class="mb-3">
+            <label class="form-label fw-bold">Name</label>
+            <input
+              type="text"
+              class="form-control form-control-lg"
+              formControlName="name"
+              placeholder="Your name"
+              [class.is-invalid]="submitted && name?.invalid" />
+            <div class="invalid-feedback" *ngIf="submitted && name?.invalid">
+              <span *ngIf="name?.errors?.['required']">Name is required</span>
+              <span *ngIf="name?.errors?.['minlength']">Name must be at least 2 characters</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Email</label>
+            <input
+              type="email"
+              class="form-control form-control-lg"
+              formControlName="email"
+              placeholder="you@example.com"
+              [class.is-invalid]="submitted && email?.invalid" />
+            <div class="invalid-feedback" *ngIf="submitted && email?.invalid">
+              <span *ngIf="email?.errors?.['required']">Email is required</span>
+              <span *ngIf="email?.errors?.['email']">Please enter a valid email</span>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Message</label>
+            <textarea
+              class="form-control form-control-lg"
+              rows="4"
+              formControlName="message"
+              placeholder="How can we help?"
+              [class.is-invalid]="submitted && message?.invalid"></textarea>
+            <div class="invalid-feedback" *ngIf="submitted && message?.invalid">
+              <span *ngIf="message?.errors?.['required']">Message is required</span>
+              <span *ngIf="message?.errors?.['minlength']">Message must be at least 10 characters</span>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-lg fw-bold w-100">
+            <i class="bi bi-send"></i> Send Message
+          </button>
+        </form>
+      </div>
+      <div class="col-md-6">
+        <div class="contact-info h-100" *ngIf="contactInfo$ | async as info">
+          <div class="info-card mb-3">
+            <i class="bi bi-geo-alt-fill"></i>
+            <div>
+              <h5 class="fw-bold">Visit Us</h5>
+              <p>{{ info.address }}</p>
+            </div>
+          </div>
+          <!-- <div class="info-card mb-3">
+            <i class="bi bi-telephone-fill"></i>
+            <div>
+              <h5 class="fw-bold">Phone</h5>
+              <p>{{ info.phone }}</p>
+            </div>
+          </div> -->
+          <div class="info-card mb-3">
+            <i class="bi bi-envelope-fill"></i>
+            <div>
+              <h5 class="fw-bold">Email</h5>
+              <p>{{ info.email }}</p>
+            </div>
+          </div>
+          <div class="info-card">
+            <i class="bi bi-clock-fill"></i>
+            <div>
+              <h5 class="fw-bold">Hours</h5>
+              <p>{{ info.hours }}<br />Sat & Sun: Closed</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

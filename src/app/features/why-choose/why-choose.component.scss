@@ -1,0 +1,27 @@
+.bg-light-custom {
+  background: linear-gradient(135deg, #e7f5ff 0%, #f0e7ff 100%);
+  padding: 40px;
+  border: 2px solid rgba(102, 126, 234, 0.1);
+
+  h2 {
+    color: #333;
+    font-size: 2rem;
+  }
+
+  ul li {
+    font-size: 1.1rem;
+    color: #555;
+    transition: all 0.3s ease;
+
+    &:hover {
+      padding-left: 10px;
+      color: #333;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .bg-light-custom {
+    padding: 20px;
+  }
+}
