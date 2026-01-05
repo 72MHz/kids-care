@@ -1,29 +1,35 @@
-<section id="services" class="mb-5 py-5">
+<section id="services" class="services-section py-5">
   <div class="container">
+    <!-- Section Header -->
     <div class="text-center mb-5">
-      <h2 class="display-6 fw-bold mb-2">
-        <i class="bi bi-star-fill text-warning"></i> Our Services
+      <h2 class="display-5 fw-bold mb-3">
+        What We Offer
       </h2>
-      <p class="text-muted fs-5">Carefully designed programs for every stage of development</p>
+      <p class="text-muted fs-5 max-width-600 mx-auto">
+        Comprehensive range of evidence-based services tailored to your child's unique needs
+      </p>
     </div>
+
+    <!-- Services Grid -->
     <div class="row g-4">
-      <div class="col-md-4" *ngFor="let service of services$ | async">
-        <div class="card h-100 service-card shadow-sm border-0">
-          <div class="position-relative overflow-hidden">
-            <img
-              [src]="service.image"
-              class="card-img-top service-img"
-              [alt]="service.title" />
-            <div class="service-overlay">
-              <i class="bi" [ngClass]="'bi-' + service.icon"></i>
+      <div class="col-md-6 col-lg-4" *ngFor="let service of services$ | async">
+        <div class="service-card h-100 rounded-4 overflow-hidden shadow-sm border-0 transition-all">
+          <!-- Card Header with Icon -->
+          <div class="service-header p-4 d-flex align-items-center justify-content-between">
+            <div>
+              <h5 class="card-title fw-bold mb-0">{{ service.title }}</h5>
+            </div>
+            <div class="service-icon">
+              <i [ngClass]="'bi bi-' + service.icon"></i>
             </div>
           </div>
-          <div class="card-body">
-            <h5 class="card-title fw-bold">
-              <i [ngClass]="'bi ' + service.icon" [class.text-primary]="service.color === 'primary'" [class.text-success]="service.color === 'success'" [class.text-warning]="service.color === 'warning'"></i>
-              {{ service.title }}
-            </h5>
-            <p class="card-text text-muted">{{ service.description }}</p>
+
+          <!-- Card Body -->
+          <div class="card-body p-4">
+            <p class="card-text text-muted mb-3">{{ service.description }}</p>
+            <a href="#contact" class="btn btn-sm btn-outline-primary rounded-pill">
+              Learn More <i class="bi bi-arrow-right"></i>
+            </a>
           </div>
         </div>
       </div>

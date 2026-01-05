@@ -1,86 +1,146 @@
-<section id="contact" class="mb-5 py-5">
+<section id="contact" class="contact-section py-5">
   <div class="container">
+    <!-- Section Header -->
     <div class="text-center mb-5">
-      <h2 class="display-6 fw-bold mb-2">
-        <i class="bi bi-telephone-fill text-success"></i> Contact Us
-      </h2>
-      <p class="text-muted fs-5">Get in touch with us today</p>
+      <h2 class="display-5 fw-bold mb-3">Book an Appointment</h2>
+      <p class="text-muted fs-5 max-width-600 mx-auto">
+        Schedule a consultation with our specialists. We're here to help your child thrive.
+      </p>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
-          <div class="mb-3">
-            <label class="form-label fw-bold">Name</label>
-            <input
-              type="text"
-              class="form-control form-control-lg"
-              formControlName="name"
-              placeholder="Your name"
-              [class.is-invalid]="submitted && name?.invalid" />
-            <div class="invalid-feedback" *ngIf="submitted && name?.invalid">
-              <span *ngIf="name?.errors?.['required']">Name is required</span>
-              <span *ngIf="name?.errors?.['minlength']">Name must be at least 2 characters</span>
+
+    <div class="row g-4">
+      <!-- Appointment Form -->
+      <div class="col-lg-7">
+        <div class="appointment-card rounded-4 p-5 shadow-sm">
+          <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+            <!-- Name Field -->
+            <div class="mb-4">
+              <label class="form-label fw-bold mb-2">Child's Name</label>
+              <input
+                type="text"
+                class="form-control form-control-lg rounded-3"
+                formControlName="name"
+                placeholder="Enter child's name"
+                [class.is-invalid]="submitted && name?.invalid" />
+              <div class="invalid-feedback d-block" *ngIf="submitted && name?.invalid">
+                <small *ngIf="name?.errors?.['required']">Name is required</small>
+                <small *ngIf="name?.errors?.['minlength']">Name must be at least 2 characters</small>
+              </div>
             </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label fw-bold">Email</label>
-            <input
-              type="email"
-              class="form-control form-control-lg"
-              formControlName="email"
-              placeholder="you@example.com"
-              [class.is-invalid]="submitted && email?.invalid" />
-            <div class="invalid-feedback" *ngIf="submitted && email?.invalid">
-              <span *ngIf="email?.errors?.['required']">Email is required</span>
-              <span *ngIf="email?.errors?.['email']">Please enter a valid email</span>
+
+            <!-- Parent/Guardian Name -->
+            <div class="mb-4">
+              <label class="form-label fw-bold mb-2">Parent/Guardian Name</label>
+              <input
+                type="text"
+                class="form-control form-control-lg rounded-3"
+                placeholder="Your name"
+                [class.is-invalid]="submitted" />
             </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label fw-bold">Message</label>
-            <textarea
-              class="form-control form-control-lg"
-              rows="4"
-              formControlName="message"
-              placeholder="How can we help?"
-              [class.is-invalid]="submitted && message?.invalid"></textarea>
-            <div class="invalid-feedback" *ngIf="submitted && message?.invalid">
-              <span *ngIf="message?.errors?.['required']">Message is required</span>
-              <span *ngIf="message?.errors?.['minlength']">Message must be at least 10 characters</span>
+
+            <!-- Email Field -->
+            <div class="mb-4">
+              <label class="form-label fw-bold mb-2">Email Address</label>
+              <input
+                type="email"
+                class="form-control form-control-lg rounded-3"
+                formControlName="email"
+                placeholder="you@example.com"
+                [class.is-invalid]="submitted && email?.invalid" />
+              <div class="invalid-feedback d-block" *ngIf="submitted && email?.invalid">
+                <small *ngIf="email?.errors?.['required']">Email is required</small>
+                <small *ngIf="email?.errors?.['email']">Please enter a valid email</small>
+              </div>
             </div>
-          </div>
-          <button type="submit" class="btn btn-primary btn-lg fw-bold w-100">
-            <i class="bi bi-send"></i> Send Message
-          </button>
-        </form>
+
+            <!-- Phone Field -->
+            <div class="mb-4">
+              <label class="form-label fw-bold mb-2">Phone Number</label>
+              <input
+                type="tel"
+                class="form-control form-control-lg rounded-3"
+                placeholder="+1 (555) 123-4567" />
+            </div>
+
+            <!-- Preferred Date -->
+            <div class="row g-3 mb-4">
+              <div class="col-md-6">
+                <label class="form-label fw-bold mb-2">Preferred Date</label>
+                <input type="date" class="form-control form-control-lg rounded-3" />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label fw-bold mb-2">Preferred Time</label>
+                <input type="time" class="form-control form-control-lg rounded-3" />
+              </div>
+            </div>
+
+            <!-- Message Field -->
+            <div class="mb-4">
+              <label class="form-label fw-bold mb-2">Additional Information</label>
+              <textarea
+                class="form-control form-control-lg rounded-3"
+                rows="4"
+                formControlName="message"
+                placeholder="Tell us about your concerns or questions..."
+                [class.is-invalid]="submitted && message?.invalid"></textarea>
+              <div class="invalid-feedback d-block" *ngIf="submitted && message?.invalid">
+                <small *ngIf="message?.errors?.['required']">Message is required</small>
+              </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="d-grid gap-2">
+              <button 
+                type="submit" 
+                class="btn btn-lg fw-bold rounded-3 btn-appointment"
+                [disabled]="submitted">
+                <i class="bi bi-check-circle"></i> Submit Appointment Request
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div class="col-md-6">
-        <div class="contact-info h-100" *ngIf="contactInfo$ | async as info">
-          <div class="info-card mb-3">
-            <i class="bi bi-geo-alt-fill"></i>
+
+      <!-- Contact Info Cards -->
+      <div class="col-lg-5">
+        <!-- Helpline Card -->
+        <div class="contact-info-card rounded-4 p-4 mb-4 shadow-sm">
+          <div class="d-flex align-items-start">
+            <div class="contact-icon me-3">
+              <i class="bi bi-telephone-fill"></i>
+            </div>
             <div>
-              <h5 class="fw-bold">Visit Us</h5>
-              <p>{{ info.address }}</p>
+              <h5 class="fw-bold mb-2">Call Our Helpline</h5>
+              <p class="mb-1"><a href="tel:+1-888-400-0234" class="text-decoration-none fw-bold">+1-888-400-0234</a></p>
+              <small class="text-muted">Available 24/7 for urgent concerns</small>
             </div>
           </div>
-          <!-- <div class="info-card mb-3">
-            <i class="bi bi-telephone-fill"></i>
-            <div>
-              <h5 class="fw-bold">Phone</h5>
-              <p>{{ info.phone }}</p>
+        </div>
+
+        <!-- Free Consultation Card -->
+        <div class="contact-info-card rounded-4 p-4 mb-4 shadow-sm">
+          <div class="d-flex align-items-start">
+            <div class="contact-icon me-3">
+              <i class="bi bi-chat-dots-fill"></i>
             </div>
-          </div> -->
-          <div class="info-card mb-3">
-            <i class="bi bi-envelope-fill"></i>
             <div>
-              <h5 class="fw-bold">Email</h5>
-              <p>{{ info.email }}</p>
+              <h5 class="fw-bold mb-2">Free Consultation</h5>
+              <p class="mb-1">15-minute introductory call</p>
+              <small class="text-muted">With a specialist</small>
             </div>
           </div>
-          <div class="info-card">
-            <i class="bi bi-clock-fill"></i>
+        </div>
+
+        <!-- Expert Team Card -->
+        <div class="contact-info-card rounded-4 p-4 shadow-sm">
+          <div class="d-flex align-items-start">
+            <div class="contact-icon me-3">
+              <i class="bi bi-people-fill"></i>
+            </div>
             <div>
-              <h5 class="fw-bold">Hours</h5>
-              <p>{{ info.hours }}<br />Sat & Sun: Closed</p>
+              <h5 class="fw-bold mb-2">Expert Team</h5>
+              <p class="mb-1">Licensed care providers</p>
+              <small class="text-muted">Specialized in child development</small>
             </div>
           </div>
         </div>

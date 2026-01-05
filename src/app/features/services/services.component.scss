@@ -1,64 +1,97 @@
+.services-section {
+  background: var(--light-bg);
+
+  .max-width-600 {
+    max-width: 600px;
+  }
+}
+
 .service-card {
+  background: white;
   border-radius: 15px;
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
   height: 100%;
+  border: 1px solid #f0f0f0;
 
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15) !important;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1) !important;
 
-    .service-img {
-      transform: scale(1.1);
-    }
+    .service-header {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
 
-    .service-overlay {
-      opacity: 1;
+      h5 {
+        color: white;
+      }
+
+      .service-icon i {
+        color: white;
+      }
     }
   }
 }
 
-.service-img {
-  height: 200px;
-  object-fit: cover;
-  transition: transform 0.6s ease;
-}
+.service-header {
+  background: #f8f9fb;
+  transition: all 0.3s ease;
 
-.service-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  h5 {
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
 
-  i {
-    color: white;
-    font-size: 2.5rem;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  .service-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--light-bg);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+
+    i {
+      font-size: 1.5rem;
+      color: var(--primary);
+      transition: color 0.3s ease;
+    }
   }
 }
 
-.card-title {
-  color: #333;
-  margin-top: 10px;
+.card-body {
+  p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
 
-  i {
-    margin-right: 8px;
+  .btn-outline-primary {
+    color: var(--primary);
+    border-color: var(--primary);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    i {
+      margin-left: 5px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover i {
+      transform: translateX(3px);
+    }
   }
 }
 
 @media (max-width: 768px) {
   .service-card {
     margin-bottom: 20px;
-  }
-
-  .service-img {
-    height: 180px;
   }
 }

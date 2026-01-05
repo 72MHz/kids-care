@@ -1,25 +1,40 @@
 <header class="hero-section text-white text-center position-relative overflow-hidden">
-    <!-- Main Content -->
+  <!-- Animated Background Elements -->
+  <div class="hero-bg-decoration"></div>
+  
+  <!-- Main Content -->
   <div class="hero-content">
     <div class="content-wrapper">
-      <h1 class="display-4 fw-bold mb-3 animate-fade-in">Welcome to <span class="highlight-text">Kids Care</span></h1>
-      <p class="lead mb-4 fs-5">A safe, playful, and learning-first environment for your little ones.</p>
+      <h1 class="display-4 fw-bold mb-3 animate-fade-in">
+        Supporting Your Child's <span class="highlight-text">Growth & Development</span>
+      </h1>
+      <p class="lead mb-4 fs-5">
+        Compassionate care, expert guidance, and a safe haven for children to learn, play, and thrive.
+      </p>
       
-      <!-- Interactive Features -->
-      <div class="features-grid mb-5">
-        <div class="feature-item" *ngFor="let feature of features">
-          <div class="feature-icon">{{ feature.icon }}</div>
-          <span class="feature-text">{{ feature.text }}</span>
+      <!-- Stats Row -->
+      <div class="stats-row mb-5">
+        <div class="stat-item">
+          <h3 class="stat-number">500+</h3>
+          <p class="stat-label">Children Served</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="stat-number">98%</h3>
+          <p class="stat-label">Parent Satisfaction</p>
+        </div>
+        <div class="stat-item">
+          <h3 class="stat-number">15+</h3>
+          <p class="stat-label">Expert Care Providers</p>
         </div>
       </div>
 
       <!-- CTA Buttons -->
       <div class="d-flex gap-3 justify-content-center flex-wrap">
-        <a href="#services" class="btn btn-light btn-lg fw-bold interactive-btn">
-          <i class="bi bi-play-circle"></i> Explore Services
+        <a href="#contact" class="btn btn-light btn-lg fw-bold interactive-btn">
+          <i class="bi bi-calendar-check"></i> Book Appointment
         </a>
-        <a href="#contact" class="btn btn-outline-light btn-lg fw-bold interactive-btn">
-          <i class="bi bi-calendar-event"></i> Book a Visit
+        <a href="#services" class="btn btn-outline-light btn-lg fw-bold interactive-btn">
+          <i class="bi bi-play-circle"></i> Learn More
         </a>
       </div>
     </div>

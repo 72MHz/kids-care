@@ -2,14 +2,31 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 :root {
-  --primary: #0d6efd;
-  --secondary: #6c757d;
-  --success: #198754;
-  --warning: #ffc107;
-  --danger: #dc3545;
-  --light-bg: #f8f9fa;
-  --gradient-primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-warm: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  // Primary Colors - Warm Orange/Coral
+  --primary: #FF6B35;
+  --primary-light: #FF8A5B;
+  --primary-dark: #E55100;
+  
+  // Secondary Colors - Teal/Blue
+  --secondary: #004E89;
+  --secondary-light: #1B6CA8;
+  --secondary-dark: #003366;
+  
+  // Accent Colors
+  --accent-purple: #9D4EDD;
+  --accent-green: #06D6A0;
+  --accent-yellow: #FFB703;
+  
+  // Neutral Colors
+  --text-dark: #1A1A2E;
+  --text-light: #666666;
+  --light-bg: #F7F9FB;
+  --white: #FFFFFF;
+  
+  // Gradients
+  --gradient-primary: linear-gradient(135deg, #FF6B35 0%, #004E89 100%);
+  --gradient-warm: linear-gradient(135deg, #FF8A5B 0%, #FFB703 100%);
+  --gradient-cool: linear-gradient(135deg, #004E89 0%, #9D4EDD 100%);
 }
 
 
@@ -41,7 +58,7 @@ main {
   border-radius: 5px;
 
   &:hover {
-    background: #764ba2;
+    background: var(--primary-dark);
   }
 }
 
@@ -57,16 +74,64 @@ main {
   }
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
 /* Utility Classes */
+.animate-fade-in {
+  animation: slideUp 0.8s ease-out;
+}
+
 .bg-gradient {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--gradient-primary);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+.transition-all {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* Smooth transitions */
@@ -75,6 +140,28 @@ a,
 input,
 textarea {
   transition: all 0.3s ease;
+}
+
+/* Form Styling */
+.form-control, .form-select {
+  border-radius: 10px;
+  border: 2px solid #e9ecef;
+  
+  &:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 0.3rem rgba(255, 107, 53, 0.1);
+  }
+}
+
+/* Button Styling */
+.btn {
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+  }
 }
 
 /* Form Validation Styling */
