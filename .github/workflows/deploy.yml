@@ -28,7 +28,7 @@ jobs:
         run: npm install
 
       - name: Build Angular project
-        run: npm run build -- --configuration production --base-href="/kids-care/"
+        run: npm run build -- --configuration=github-pages
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
