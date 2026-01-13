@@ -57,6 +57,22 @@
               "namedChunks": true
             },
             "github-pages": {
+              "baseHref": "/kids-care/",
+              "outputHashing": "all",
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "5kB",
+                  "maximumError": "10kB"
+                }
+              ]
+            },
+            "custom-domain": {
               "baseHref": "/",
               "outputHashing": "all",
               "budgets": [
