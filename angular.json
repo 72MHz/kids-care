@@ -57,7 +57,7 @@
               "namedChunks": true
             },
             "github-pages": {
-              "baseHref": "/kids-care/",
+              "baseHref": "/",
               "outputHashing": "all",
               "budgets": [
                 {
